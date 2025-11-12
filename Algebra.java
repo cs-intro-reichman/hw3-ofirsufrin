@@ -133,10 +133,15 @@ public class Algebra {
 	public static int sqrt(int x) {
 		int i = 0;
 		int result = 0;
+	    if (x < 0) {
+        	return -1; // אין שורש ריבועי למספר שלילי
+    		}
+
 		while (result <= x) {
 			result = times(i,i);
 			i++;
-		}
+			} 
+		
 		i--;
 		return i;
 	}	  	  
