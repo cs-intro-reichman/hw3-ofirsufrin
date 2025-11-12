@@ -133,7 +133,7 @@ public class Algebra {
 	public static int sqrt(int x) {
 		int i = 1;
 		int result = 0;
-		while (result <= x) {
+		while (result < x) {
 			result = times(i,i);
 			i++;
 		}	
