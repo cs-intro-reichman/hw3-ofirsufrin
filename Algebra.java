@@ -131,12 +131,12 @@ public class Algebra {
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
-		int i = 1;
+		int i = 0;
 		int result = 0;
-		while (result < x) {
+		while (result <= x) {
 			result = times(i,i);
 			i++;
-		}	
+		}
 		i--;
 		return i;
 	}	  	  
