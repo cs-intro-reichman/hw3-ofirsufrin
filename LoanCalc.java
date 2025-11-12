@@ -74,6 +74,7 @@ public class LoanCalc {
 			}
 			iterationCounter++;
 		}
+		iterationCounter--;
 		return g;
     }
 }
