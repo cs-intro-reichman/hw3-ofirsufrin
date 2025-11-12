@@ -58,8 +58,18 @@ public class Algebra {
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
 		int y = 0;
-		for (int j = 0; j < x2; j++) {			
+		if (x2 > 0) {
+			for (int j = 0; j < x2; j++) {			
 			y = plus(y, x1);
+			
+			}
+
+		} else {
+			for (int j = 0; j > x2; j--) {			
+			y = plus(y, x1);
+
+			}
+			y = minus(0,y);
 			
 		}
 		return y;
@@ -83,6 +93,23 @@ public class Algebra {
 			m = minus(m, x2);
 			result++;			
 			}
+
+		} else if (x1 < 0 && x2 > 0) {
+			m = minus(0,x1);
+			while (m >= x2) {	
+			m = minus(m, x2);
+			result++;			
+			}
+			result = minus(0,result);
+
+		} else if (x2 < 0 && x1 > 0) {
+			x2 = minus(0, x2);
+			while (m >= x2) {	
+			m = minus(m, x2);
+			result++;	
+
+			}
+			result = minus(0,result);
 
 		} 
 
