@@ -31,7 +31,7 @@ public class Algebra {
 			}
 
 		} else {
-			for (int i = 0; i <= x2; i++) {
+			for (int i = 0; i < x2; i++) {
 			x1++;
 			}
 
@@ -42,9 +42,16 @@ public class Algebra {
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
-		for (int i = 0; i < x2; i++) {
+		if (x2 > 0) {
+			for (int i = 0; i < x2; i++) {
 			x1--;
+			}
+	 	} else {
+			for (int i = 0; i > x2; i--) {
+			x1++;
+			}
 		}
+
 		return x1;
 	}
 
@@ -71,10 +78,14 @@ public class Algebra {
 	public static int div(int x1, int x2) {
 		int result = 0;
 		int m = x1;
-		while (m >= x2) {	
+		if ((x1 > 0 && x2 > 0) || (x1 < 0 && x2 < 0)) {
+			while (m >= x2) {	
 			m = minus(m, x2);
 			result++;			
-		}
+			}
+
+		} 
+
 		return result;
 		}
 
