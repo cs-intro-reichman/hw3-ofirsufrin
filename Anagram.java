@@ -35,6 +35,7 @@ public class Anagram {
 		boolean ans = true;
 		if (lengthStr1 != lengthStr2) {
 			ans = false;
+			return false;
 		} else {
 			for (int i = 0; i < lengthStr1; i++) {
 				for (int j = 0; j < lengthStr2; j++) {
@@ -76,8 +77,8 @@ public class Anagram {
 	public static String preProcess(String str) {
 		str = str.toLowerCase();
 		int lengthStr = str.length();
-		String abc = "abcdefghijklmnopqrstuvwxyz1234567890";
-		String newStr = "";
+		String abc = "abcdefghijklmnopqrstuvwxyz1234567890 ";
+		String newStr = ""; 
 		for (int i = 0; i < lengthStr; i++) {
 			if (abc.indexOf(str.charAt(i)) > -1) {
 				newStr = newStr + str.charAt(i);
