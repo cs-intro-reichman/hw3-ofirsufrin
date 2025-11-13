@@ -28,8 +28,46 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		// Replace the following statement with your code
-		return false;
+		str1 = preProcess(str1);
+		str2 = preProcess(str2);
+		int lengthStr1 = str1.length();
+		int lengthStr2 = str2.length();
+		boolean ans = true;
+		if (lengthStr1 != lengthStr2) {
+			ans = false;
+		} else {
+			for (int i = 0; i < lengthStr1; i++) {
+				for (int j = 0; j < lengthStr2; j++) {
+					if (str1.charAt(j) == str2.charAt(i)) {
+					ans = true;				
+				}
+			}
+		}
+
+		} // בדיקה על אותיות כפולות במחרוזת - האם יש אותן כפילויות לכל מחרוזת
+		int count = 0;
+		String needChack = "";
+		String needChack2 = "";
+		if (ans = true) {
+			for (int i = 0; i < lengthStr1; i++) {
+				for (int j = 0; j < lengthStr1; j++) {
+					if (str1.charAt(j) == str1.charAt(i)) {
+						needChack = needChack + str1.charAt(j);
+						
+					}
+				}
+			}
+			for (int i = 0; i < lengthStr2; i++) {
+				for (int j = 0; j < lengthStr2; j++) {
+					if (str2.charAt(j) == str2.charAt(i)) {
+						needChack2 = needChack2 + str2.charAt(j);
+						
+					}
+				}
+			}
+		} // אם צריך - להמשיך לבדוק לכל אות את מספר המופעים ולהשוות לסטרינג השני
+
+		return ans;
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
@@ -38,19 +76,31 @@ public class Anagram {
 	public static String preProcess(String str) {
 		str = str.toLowerCase();
 		int lengthStr = str.length();
-		int lengthAbc = abc.length();
-		String abc = "abcdefghijklmnopqrstuvwxyz"
-		for (int i = 0; i < length; i++)
+		String abc = "abcdefghijklmnopqrstuvwxyz1234567890";
+		String newStr = "";
+		for (int i = 0; i < lengthStr; i++) {
+			if (abc.indexOf(str.charAt(i)) > -1) {
+				newStr = newStr + str.charAt(i);
+			}
 
-
-
-		return "";
+		}
+		return newStr;
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
-		// Replace the following statement with your code
-		return "";
+		int lengthStr = str.length();
+		String newWord = "";
+
+		while (lengthStr > 0) {
+			int randomChar = (int) (Math.random() * lengthStr);
+			newWord = newWord + str.charAt(randomChar);
+			str = str.substring(0, randomChar) + str.substring(randomChar + 1, lengthStr);
+			lengthStr = str.length();
+
+		}
+
+		return newWord;
 	}
 }
