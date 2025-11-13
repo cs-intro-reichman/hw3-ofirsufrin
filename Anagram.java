@@ -34,42 +34,24 @@ public class Anagram {
 		int lengthStr2 = str2.length();
 		boolean ans = true;
 		if (lengthStr1 != lengthStr2) {
-			ans = false;
 			return false;
-		} else {
-			for (int i = 0; i < lengthStr1; i++) {
-				for (int j = 0; j < lengthStr2; j++) {
-					if (str1.charAt(j) == str2.charAt(i)) {
-					ans = true;				
-				}
+		} 
+		for (int i = 0; i < lengthStr1; i++) {
+			if ((str2.indexOf(str1.charAt(i))) != -1) {
+				char x = str1.charAt(i);
+				str2 = str2.substring(0, str2.indexOf(x)) + str2.substring(str2.indexOf(x) + 1);
+			} else {
+				return false;
 			}
 		}
+		
+		if (str2.equals("")) {
+			return true;
+		} else {
+			return false;
+		}
 
-		} // בדיקה על אותיות כפולות במחרוזת - האם יש אותן כפילויות לכל מחרוזת
-		int count = 0;
-		String needChack = "";
-		String needChack2 = "";
-		if (ans = true) {
-			for (int i = 0; i < lengthStr1; i++) {
-				for (int j = 0; j < lengthStr1; j++) {
-					if (str1.charAt(j) == str1.charAt(i)) {
-						needChack = needChack + str1.charAt(j);
-						
-					}
-				}
-			}
-			for (int i = 0; i < lengthStr2; i++) {
-				for (int j = 0; j < lengthStr2; j++) {
-					if (str2.charAt(j) == str2.charAt(i)) {
-						needChack2 = needChack2 + str2.charAt(j);
-						
-					}
-				}
-			}
-		} // אם צריך - להמשיך לבדוק לכל אות את מספר המופעים ולהשוות לסטרינג השני
-
-		return ans;
-	}
+		} 		
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
