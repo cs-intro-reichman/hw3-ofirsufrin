@@ -32,14 +32,14 @@ public class Anagram {
 		str2 = preProcess(str2);
 		int lengthStr1 = str1.length();
 		int lengthStr2 = str2.length();
-		boolean ans = true;
-		if (lengthStr1 != lengthStr2) {
+		if (str1.length() != str2.length()) {
 			return false;
 		} 
-		for (int i = 0; i < lengthStr1; i++) {
-			if ((str2.indexOf(str1.charAt(i))) != -1) {
+		for (int i = 0; i < str1.length(); i++) {
+			int index = str2.indexOf(str1.charAt(i));
+			if (index != -1) {
 				char x = str1.charAt(i);
-				str2 = str2.substring(0, str2.indexOf(x)) + str2.substring(str2.indexOf(x) + 1);
+				str2 = str2.substring(0, index) + str2.substring(index + 1);
 			} else {
 				return false;
 			}
