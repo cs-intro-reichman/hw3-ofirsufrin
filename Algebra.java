@@ -21,6 +21,7 @@ public class Algebra {
    		System.out.println(sqrt(36));
 		System.out.println(sqrt(263169));
    		System.out.println(sqrt(76123));
+		System.out.println(sqrt(-4));
 	}  
 
 	// Returns x1 + x2
@@ -141,7 +142,7 @@ public class Algebra {
 			result = times(i,i);
 			i++;
 			} 
-		
+		i--;
 		i--;
 		return i;
 	}	  	  
