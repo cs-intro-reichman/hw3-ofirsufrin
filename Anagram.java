@@ -36,13 +36,15 @@ public class Anagram {
 			return false;
 		} 
 		for (int i = 0; i < str1.length(); i++) {
-			int index = str2.indexOf(str1.charAt(i));
+			char c = str1.charAt(i);
+			int index = str2.indexOf(c);
 			if (index != -1) {
-				char x = str1.charAt(i);
-				str2 = str2.substring(0, index) + str2.substring(index + 1);
-			} else {
 				return false;
+			} else {
+				str2 = str2.substring(0, index - 1) + str2.substring(index +1);
 			}
+			
+			
 		}
 		
 		if (str2.equals("")) {
