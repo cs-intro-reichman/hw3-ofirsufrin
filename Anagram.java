@@ -59,7 +59,7 @@ public class Anagram {
 	public static String preProcess(String str) {
 		str = str.toLowerCase();
 		int lengthStr = str.length();
-		String abc = "abcdefghijklmnopqrstuvwxy";
+		String abc = "abcdefghijklmnopqrstuvwxy ";
 		String newStr = ""; 
 		for (int i = 0; i < lengthStr; i++) {
 			if (abc.indexOf(str.charAt(i)) > -1) {
