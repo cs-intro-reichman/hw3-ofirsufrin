@@ -27,24 +27,22 @@ public class Anagram {
 	}  
 
 	// Returns true if the two given strings are anagrams, false otherwise.
-	public static boolean isAnagram(String str1, String str2) {
+		public static boolean isAnagram(String str1, String str2) {
 		str1 = preProcess(str1);
 		str2 = preProcess(str2);
 		int lengthStr1 = str1.length();
 		int lengthStr2 = str2.length();
-		if (str1.length() != str2.length()) {
+		boolean ans = true;
+		if (lengthStr1 != lengthStr2) {
 			return false;
 		} 
-		for (int i = 0; i < str1.length(); i++) {
-			char c = str1.charAt(i);
-			int index = str2.indexOf(c);
-			if (index != -1) {
-				return false;
+		for (int i = 0; i < lengthStr1; i++) {
+			if ((str2.indexOf(str1.charAt(i))) != -1) {
+				char x = str1.charAt(i);
+				str2 = str2.substring(0, str2.indexOf(x)) + str2.substring(str2.indexOf(x) + 1);
 			} else {
-				str2 = str2.substring(0, index - 1) + str2.substring(index +1);
+				return false;
 			}
-			
-			
 		}
 		
 		if (str2.equals("")) {
@@ -53,7 +51,7 @@ public class Anagram {
 			return false;
 		}
 
-		} 		
+		} 	
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
